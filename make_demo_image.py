@@ -48,7 +48,8 @@ def create_demo_png(width=300, height=300):
 # Larger valid 300x300 PNG image.
 png_data = create_demo_png(width=300, height=300)
 
-png_data += b"\nCONFIDENTIAL: This is harmless demo hidden data for the StegoGuard lab.\n"
+if mode == "suspicious":
+    png_data += b"\nCONFIDENTIAL: This is harmless demo hidden data for the StegoGuard lab.\n"
 
 Path("images/student_image.png").write_bytes(png_data)
 
